@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MotionScene
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:motion="http://schemas.android.com/apk/res-auto">
+
+    <Transition
+            motion:constraintSetStart="@id/start"
+            motion:constraintSetEnd="@id/end"
+            motion:duration="3000">
+        <OnClick motion:clickAction="toggle"
+                motion:targetId="@id/textView"
+                />
+        <KeyFrameSet>
+            <KeyAttribute
+                    android:scaleX="0.5"
+                    android:scaleY="0.5"
+                    motion:framePosition="1"
+                    motion:motionTarget="@id/textView"
+                    motion:transitionEasing="decelerate"
+                    />
+            <KeyPosition motion:keyPositionType="deltaRelative"
+                    motion:framePosition="1"
+                    motion:percentY="0"
+                    motion:percentX="0"
+                    motion:transitionEasing="decelerate"
+                    />
+            <KeyPosition
+                    motion:motionTarget="@id/textView"
+                    motion:framePosition="10"
+                    motion:keyPositionType="deltaRelative"
+                    motion:percentX="0"
+                    motion:percentY="0" />
+            <KeyPosition
+                    motion:motionTarget="@id/textView"
+                    motion:framePosition="20"
+                    motion:keyPositionType="deltaRelative"
+                    motion:percentX="0"
+                    motion:percentY="0" />
+            <KeyPosition
+                    motion:motionTarget="@id/textView"
+                    motion:framePosition="30"
+                    motion:keyPositionType="deltaRelative"
+                    motion:percentX="0"
+                    motion:percentY="0" />
+            <KeyPosition
+                    motion:motionTarget="@id/textView"
+                    motion:framePosition="40"
+                    motion:keyPositionType="deltaRelative"
+                    motion:percentX="0"
+                    motion:percentY="0" />
+
+            <KeyPosition motion:keyPositionType="deltaRelative"
+                    motion:framePosition="50"
+                    motion:percentY="0"
+                    motion:percentX="0"
+                    motion:transitionEasing="decelerate"
+                    />
+            <KeyAttribute
+                    android:scaleX="1"
+                    android:scaleY="1"
+                    motion:framePosition="50"
+                    motion:motionTarget="@id/textView"
+                    motion:transitionEasing="decelerate"
+                    />
+
+            <KeyAttribute
+                    android:alpha="0"
+                    motion:framePosition="30"
+                    motion:motionTarget="@id/background"
+                    motion:transitionEasing="accelerate"
+                />
+
+            <!--<KeyPosition
+                    motion:keyPositionType="parentRelative"
+                    motion:percentY="0.25"
+                    motion:framePosition="50"
+                    motion:motionTarget="@id/textView"
+                    />-->
+        </KeyFrameSet>
+    </Transition>
+
+    <Transition
+            motion:constraintSetStart="@id/end"
+            motion:constraintSetEnd="@id/viba"
+            motion:duration="1000">
+        <OnClick motion:clickAction="toggle"
+                motion:targetId="@id/image"
+                />
+    </Transition>
+
+    <ConstraintSet android:id="@+id/start">
+
+    </ConstraintSet>
+
+    <ConstraintSet android:id="@+id/end">
+        <Constraint android:id="@id/textView"
+                android:elevation="20dp">
+            <Layout android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    motion:layout_constraintStart_toStartOf="parent"
+                    motion:layout_constraintEnd_toEndOf="parent"
+                    motion:layout_constraintTop_toTopOf="parent"
+                    motion:layout_constraintBottom_toBottomOf="parent" />
+        </Constraint>
+        <Constraint android:id="@id/background"
+                android:visibility="visible"
+                android:elevation="10dp"
+                android:layout_height="0dp"
+                android:layout_width="0dp"
+                motion:layout_constraintStart_toStartOf="parent"
+                motion:layout_constraintEnd_toEndOf="parent"
+                motion:layout_constraintTop_toTopOf="parent"
+                motion:layout_constraintBottom_toBottomOf="parent"
+                android:background="@drawable/valerie_avatar">
+            <PropertySet android:background="@drawable/valerie_avatar"/>
+            <CustomAttribute motion:attributeName="background" motion:customColorValue="@color/colorAccent"/>
+        </Constraint>
+        <Constraint android:id="@id/image"
+                android:elevation="20dp"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                motion:layout_constraintTop_toTopOf="parent"
+                motion:layout_constraintBottom_toBottomOf="parent"
+                motion:layout_constraintStart_toStartOf="parent">
+            <CustomAttribute
+                    motion:attributeName="crossfade"
+                    motion:customFloatValue="0" />
+        </Constraint>
+    </ConstraintSet>
+
+    <ConstraintSet android:id="@+id/viba">
+        <Constraint android:id="@id/image">
+            <CustomAttribute
+                    motion:attributeName="crossfade"
+                    motion:customFloatValue="1" />
+        </Constraint>
+    </ConstraintSet>
+</MotionScene>
