@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="t1" type="id"/>
+    <item name="t2" type="id"/>
+    <item name="t3" type="id"/>
+    <item name="s1" type="id"/>
+    <item name="s2" type="id"/>
+    <item name="s3" type="id"/>
+    <item name="e1" type="id"/>
+    <item name="e2" type="id"/>
+    <item name="e3" type="id"/>
+</resources>
